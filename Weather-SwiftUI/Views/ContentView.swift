@@ -11,21 +11,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            VStack {
-                Text("City")
-                Text("Condition")
-                Text("temp")
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 0) {
+                    LocationView()
+                    LocationView()
+                    LocationView()
+                }
             }
-            .background(Image("partlyCloudy"))
-            
-            ScrollView(.vertical, showsIndicators: false, content: {
-                Text("scroll view")
-            })
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading)
-            .background(Color.blue)
         }
-        
-        
+        .edgesIgnoringSafeArea(.top)
     }
 }
 
