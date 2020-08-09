@@ -19,21 +19,18 @@ struct LocationView: View {
                 Text("temp")
                     .font(.title)
             }
-            .frame(width: UIScreen.main.bounds.width, height: nil, alignment: .center)
             .foregroundColor(.white)
-            .background(
-                Image("partlyCloudy")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            )
             
             ScrollView(.vertical, showsIndicators: false, content: {
                 Text("scroll view")
             })
-            .frame(width: UIScreen.main.bounds.width, height: nil, alignment: .center)
-            .background(Color.blue)
         }
         .frame(width: UIScreen.main.bounds.width, height: nil, alignment: .center)
+        .background(
+            Image("partlyCloudy")
+                .resizable()
+                .edgesIgnoringSafeArea(.top)
+        )
     }
 }
 
