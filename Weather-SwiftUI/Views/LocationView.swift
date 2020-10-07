@@ -14,17 +14,34 @@ struct LocationView: View {
             VStack {
                 Text("City")
                     .font(.title)
+                    .fontWeight(.medium)
                 Text("Condition")
                     .font(.body)
                 Text("temp")
-                    .font(.title)
+                    .font(.system(size: 50))
             }
             .foregroundColor(.white)
             
             ScrollView(.vertical, showsIndicators: false, content: {
-                Text("scroll view")
+                HStack {
+                    Text("day of week")
+                    Text("TODAY")
+                    Spacer()
+                    Text("high")
+                        .padding(.trailing)
+                    Text("low")
+                }
+                Divider()
+                    .padding(.leading, 0)
+                    .background(Color.white)
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HourlyWeatherView(time: "5pm", condition: "sunny", temp: "84")
+                })
             })
+            .padding([.leading, .trailing])
+            .foregroundColor(.white)
         }
+        .padding(.top, 40)
         .frame(width: UIScreen.main.bounds.width, height: nil, alignment: .center)
         .background(
             Image("partlyCloudy")

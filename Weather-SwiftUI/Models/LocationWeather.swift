@@ -1,5 +1,5 @@
 //
-//  LocationWeatherModel.swift
+//  LocationWeather.swift
 //  Weather-SwiftUI
 //
 //  Created by Paul Carroll on 8/9/20.
@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct LocationWeather {
+    let currentCondition: String
+    let currentTemp: Int
+}
