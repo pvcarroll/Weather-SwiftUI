@@ -8,14 +8,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct WeatherView: View {
+    @ObservedObject var viewModel = WeatherViewModel()
+    
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
-                    LocationView()
-                    LocationView()
-                    LocationView()
+                    LocationView(currentTemp: Int(viewModel.allWeatherData?.current.temp ?? 0))
+//                    LocationView()
+//                    LocationView()
                 }
             }
         }
@@ -25,6 +27,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WeatherView()
     }
 }

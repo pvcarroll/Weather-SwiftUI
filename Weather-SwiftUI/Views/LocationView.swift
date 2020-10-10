@@ -9,15 +9,17 @@
 import SwiftUI
 
 struct LocationView: View {
+    let currentTemp: Int
+    
     var body: some View {
         VStack {
             VStack {
-                Text("City")
+                Text("<Austin>")
                     .font(.title)
                     .fontWeight(.medium)
-                Text("Condition")
+                Text("<Condition>")
                     .font(.body)
-                Text("temp")
+                Text("\(currentTemp)°")
                     .font(.system(size: 50))
             }
             .foregroundColor(.white)
@@ -35,7 +37,7 @@ struct LocationView: View {
                     .padding(.leading, 0)
                     .background(Color.white)
                 ScrollView(.horizontal, showsIndicators: false, content: {
-                    HourlyWeatherView(time: "5pm", condition: "sunny", temp: "84")
+                    HourlyWeatherView(time: "xxpm", condition: "sunny", temp: "xx")
                 })
             })
             .padding([.leading, .trailing])
@@ -53,6 +55,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView()
+        LocationView(currentTemp: 00)
     }
 }
