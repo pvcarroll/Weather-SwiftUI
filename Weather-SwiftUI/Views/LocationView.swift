@@ -38,7 +38,22 @@ struct LocationView: View {
                     .padding(.leading, 0)
                     .background(Color.white)
                 ScrollView(.horizontal, showsIndicators: false, content: {
-                    HourlyWeatherView(time: "xxpm", condition: "sunny", temp: "xx")
+                    if let hourlyForecasts = viewModel.allWeatherData?.hourly {
+                        HStack {
+                            ForEach(hourlyForecasts, id: \.dt) { hourlyWeather in
+                                if let dt = hourlyWeather.dt
+                                   , let condition = hourlyWeather.weather.first?.main
+                                   , let temp = hourlyWeather.temp {
+                                    
+                                    HourlyWeatherView(
+                                        time: "\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)",
+                                        condition: condition,
+                                        temp: "\(Int(temp))°"
+                                    )
+                                }
+                            }
+                        }
+                    }
                 })
                 Divider()
                     .padding(.leading, 0)

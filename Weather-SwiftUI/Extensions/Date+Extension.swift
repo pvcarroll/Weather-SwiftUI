@@ -1,5 +1,5 @@
 //
-//  Date.swift
+//  Date+Extension.swift
 //  Weather-SwiftUI
 //
 //  Created by Paul Carroll on 10/10/20.
@@ -9,6 +9,13 @@
 import Foundation
 
 extension Date {
+    var hour: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "ha"
+        let hour = dateFormatter.string(from: self)
+        return hour
+    }
+    
     func dayOfWeek() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
