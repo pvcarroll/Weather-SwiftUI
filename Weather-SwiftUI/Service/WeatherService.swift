@@ -16,10 +16,10 @@ class WeatherService {
     private let openWeatherAPIKey = WeatherSwiftUIKeys().openWeatherAPIKey
     
     let austinLat = "30.2672"
-    let austinLon = "97.7431"
+    let austinLon = "-97.7431"
     
     func getWeather() -> AnyPublisher<AllWeatherData, Error> {
-        let urlString = "\(openWeatherMapURL)?lat=\(austinLat)&lon=\(austinLon)&appid=\(openWeatherAPIKey)"
+        let urlString = "\(openWeatherMapURL)?lat=\(austinLat)&lon=\(austinLon)&units=imperial&appid=\(openWeatherAPIKey)"
         guard let url = URL(string: urlString) else { fatalError("Couldn't create URL") }
         
         let request = URLRequest(url: url)

@@ -15,7 +15,7 @@ struct WeatherView: View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
-                    LocationView(currentTemp: Int(viewModel.allWeatherData?.current.temp ?? 0))
+                    LocationView(viewModel: viewModel)
 //                    LocationView()
 //                    LocationView()
                 }

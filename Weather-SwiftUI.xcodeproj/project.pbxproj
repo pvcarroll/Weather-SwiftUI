@@ -10,6 +10,8 @@
 		7528AF7E25322B9D008C9BC0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528AF7D25322B9D008C9BC0 /* Weather.swift */; };
 		7528AF822532400F008C9BC0 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528AF812532400F008C9BC0 /* WeatherViewModel.swift */; };
 		7528AF8625324C40008C9BC0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528AF8525324C40008C9BC0 /* APIClient.swift */; };
+		7528AF8B25327904008C9BC0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528AF8A25327904008C9BC0 /* Date.swift */; };
+		7528AF8F2532BFCB008C9BC0 /* AllWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7528AF8E2532BFCB008C9BC0 /* AllWeatherData.swift */; };
 		754814A324E062510036EC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754814A224E062510036EC28 /* AppDelegate.swift */; };
 		754814A524E062510036EC28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754814A424E062510036EC28 /* SceneDelegate.swift */; };
 		754814A724E062510036EC28 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754814A624E062510036EC28 /* WeatherView.swift */; };
@@ -28,6 +30,8 @@
 		7528AF7D25322B9D008C9BC0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		7528AF812532400F008C9BC0 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		7528AF8525324C40008C9BC0 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		7528AF8A25327904008C9BC0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		7528AF8E2532BFCB008C9BC0 /* AllWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWeatherData.swift; sourceTree = "<group>"; };
 		7548149F24E062510036EC28 /* Weather-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		754814A224E062510036EC28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		754814A424E062510036EC28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		7528AF89253278F1008C9BC0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7528AF8A25327904008C9BC0 /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7548149624E062510036EC28 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 				7528AF8025323FF1008C9BC0 /* ViewModels */,
 				754814B824E07C270036EC28 /* Models */,
 				75959C72252E4958008CBD9C /* Service */,
+				7528AF89253278F1008C9BC0 /* Extensions */,
 				754814A824E062520036EC28 /* Assets.xcassets */,
 				754814B024E062520036EC28 /* Info.plist */,
 				754814AA24E062520036EC28 /* Preview Content */,
@@ -119,6 +132,7 @@
 		754814B824E07C270036EC28 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7528AF8E2532BFCB008C9BC0 /* AllWeatherData.swift */,
 				7528AF7D25322B9D008C9BC0 /* Weather.swift */,
 			);
 			path = Models;
@@ -277,11 +291,13 @@
 			files = (
 				754814A324E062510036EC28 /* AppDelegate.swift in Sources */,
 				75959C79252E5829008CBD9C /* WeatherService.swift in Sources */,
+				7528AF8F2532BFCB008C9BC0 /* AllWeatherData.swift in Sources */,
 				754814BD24E087140036EC28 /* LocationView.swift in Sources */,
 				754814BB24E07EFD0036EC28 /* DarkHostingController.swift in Sources */,
 				7528AF7E25322B9D008C9BC0 /* Weather.swift in Sources */,
 				7528AF8625324C40008C9BC0 /* APIClient.swift in Sources */,
 				7528AF822532400F008C9BC0 /* WeatherViewModel.swift in Sources */,
+				7528AF8B25327904008C9BC0 /* Date.swift in Sources */,
 				754814A524E062510036EC28 /* SceneDelegate.swift in Sources */,
 				754814A724E062510036EC28 /* WeatherView.swift in Sources */,
 				75959C70252E43F3008CBD9C /* HourlyWeatherView.swift in Sources */,

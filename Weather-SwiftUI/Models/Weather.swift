@@ -8,16 +8,6 @@
 
 import Foundation
 
-struct AllWeatherData: Codable {
-    let lat: Float
-    let lon: Float
-    let timezone: String
-    let timezone_offset: Int
-    let current: CurrentWeather
-    let hourly: [HourlyWeather]
-    let daily: [DailyWeather]
-}
-
 struct CurrentWeather: Codable {
     let dt: Int
     let sunrise: Int
@@ -52,6 +42,12 @@ struct HourlyWeather: Codable {
 
 struct DailyWeather: Codable {
     let dt: Int
+    let temp: Temp
+}
+
+struct Temp: Codable {
+    let min: Float
+    let max: Float
 }
 
 struct Weather: Codable {

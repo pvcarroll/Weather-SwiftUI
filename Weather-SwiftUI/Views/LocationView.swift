@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LocationView: View {
-    let currentTemp: Int
+    @ObservedObject var viewModel: WeatherViewModel
     
     var body: some View {
         VStack {
@@ -17,21 +17,22 @@ struct LocationView: View {
                 Text("<Austin>")
                     .font(.title)
                     .fontWeight(.medium)
-                Text("<Condition>")
+                Text("\(viewModel.allWeatherData?.current.weather.first?.main ?? "condition")")
                     .font(.body)
-                Text("\(currentTemp)°")
+                Text("\(Int(viewModel.allWeatherData?.current.temp ?? -1))°")
                     .font(.system(size: 50))
             }
             .foregroundColor(.white)
             
             ScrollView(.vertical, showsIndicators: false, content: {
                 HStack {
-                    Text("day of week")
+                    Text(Date().dayOfWeek() ?? "unknown")
                     Text("TODAY")
                     Spacer()
-                    Text("high")
+                    Text("\(Int(viewModel.allWeatherData?.daily[0].temp.max ?? -1))")
                         .padding(.trailing)
-                    Text("low")
+                    Text("\(Int(viewModel.allWeatherData?.daily[0].temp.min ?? -1))")
+                        .opacity(0.8)
                 }
                 Divider()
                     .padding(.leading, 0)
@@ -39,6 +40,9 @@ struct LocationView: View {
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HourlyWeatherView(time: "xxpm", condition: "sunny", temp: "xx")
                 })
+                Divider()
+                    .padding(.leading, 0)
+                    .background(Color.white)
             })
             .padding([.leading, .trailing])
             .foregroundColor(.white)
@@ -55,6 +59,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView(currentTemp: 00)
+        LocationView(viewModel: WeatherViewModel())
     }
 }
