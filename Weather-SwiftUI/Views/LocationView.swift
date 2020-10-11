@@ -48,7 +48,8 @@ struct LocationView: View {
                                     HourlyWeatherView(
                                         time: "\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)",
                                         condition: condition,
-                                        temp: "\(Int(temp))°"
+                                        temp: "\(Int(temp))°",
+                                        isDaytime: isDaytime(time: dt)
                                     )
                                 }
                             }
@@ -69,6 +70,12 @@ struct LocationView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.top)
         )
+    }
+    
+    private func isDaytime(time: Int) -> Bool {
+        guard let sunrise = viewModel.allWeatherData?.current.sunrise else { return false }
+        guard let sunset = viewModel.allWeatherData?.current.sunset else { return false }
+        return (time > sunrise) && (time < sunset)
     }
 }
 

@@ -12,6 +12,7 @@ struct HourlyWeatherView: View {
     let time: String
     let condition: String
     let temp: String
+    let isDaytime: Bool
     
     var body: some View {
         VStack {
@@ -24,10 +25,10 @@ struct HourlyWeatherView: View {
     }
     
     private func imageForCondition(_ condition: String) -> Image {
-        
         switch condition {
-        // TODO: sunrise/sunset
-        case "Clear": return Image(systemName: "moon.stars.fill")
+        case "Clear":
+            let imageName = (isDaytime ? "sun.max.fill" : "moon.stars.fill")
+            return Image(systemName: imageName)
         case "Clouds": return Image(systemName: "cloud.fill")
         case "Thunderstorm": return Image(systemName: "cloud.bolt.rain.fill")
         case "Drizzle": return Image(systemName: "cloud.drizzle.fill")
@@ -42,6 +43,6 @@ struct HourlyWeatherView: View {
 
 struct HourlyWeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        HourlyWeatherView(time: "5pm", condition: "Clear", temp: "89")
+        HourlyWeatherView(time: "5pm", condition: "Clear", temp: "89", isDaytime: true)
     }
 }
