@@ -37,25 +37,8 @@ struct LocationView: View {
                 Divider()
                     .padding(.leading, 0)
                     .background(Color.white)
+                HourlyWeatherView(viewModel: viewModel)
                 
-                ScrollView(.horizontal, showsIndicators: false, content: {
-                    if let hourlyForecasts = viewModel.allWeatherData?.hourly {
-                        HStack {
-                            ForEach(hourlyForecasts, id: \.dt) { hourlyForecast in
-                                if let dt = hourlyForecast.dt
-                                   , let condition = hourlyForecast.weather.first?.main
-                                   , let temp = hourlyForecast.temp {
-                                    HourlyWeatherView(
-                                        time: "\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)",
-                                        condition: condition,
-                                        temp: "\(Int(temp))°",
-                                        isDaytime: isDaytime(time: dt)
-                                    )
-                                }
-                            }
-                        }
-                    }
-                })
                 Divider()
                     .padding(.leading, 0)
                     .background(Color.white)
@@ -100,11 +83,7 @@ struct LocationView: View {
         )
     }
     
-    private func isDaytime(time: Int) -> Bool {
-        guard let sunrise = viewModel.allWeatherData?.current.sunrise else { return false }
-        guard let sunset = viewModel.allWeatherData?.current.sunset else { return false }
-        return (time > sunrise) && (time < sunset)
-    }
+    
 }
 
 struct LocationView_Previews: PreviewProvider {
