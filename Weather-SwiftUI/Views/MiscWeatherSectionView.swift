@@ -53,7 +53,11 @@ struct MiscWeatherSectionView: View {
             MiscWeatherView(leftLabel: "HUMIDITY", leftValue: "\(humidity)",
                             rightLabel: "WIND", rightValue: "\(windSpeed) \(windDegrees)°")
         }
-        
+        if let feelsLike = viewModel.allWeatherData?.current.feels_like
+           , let pressure = viewModel.allWeatherData?.current.pressure {
+            MiscWeatherView(leftLabel: "FEELS LIKE", leftValue: "\(feelsLike)°",
+                            rightLabel: "PRESSURE", rightValue: "\(pressure)hPa")
+        }
     }
 }
 
