@@ -52,24 +52,7 @@ struct LocationView: View {
                         .padding(.leading, 0)
                         .background(Color.white)
                 }
-                HStack {
-                    VStack {
-                        Text("SUNRISE")
-                        if let sunrise = viewModel.allWeatherData?.current.sunrise {
-                            Text(Date(timeIntervalSince1970: TimeInterval(sunrise)).time)
-                        }
-                    }
-                    Spacer()
-                    VStack {
-                        Text("SUNSET")
-                        if let sunset = viewModel.allWeatherData?.current.sunset {
-                            Text(Date(timeIntervalSince1970: TimeInterval(sunset)).time)
-                        }
-                    }
-                }
-                Divider()
-                    .padding(.leading, 0)
-                    .background(Color.white)
+                MiscWeatherSectionView(viewModel: viewModel)
             })
             .padding([.leading, .trailing])
             .foregroundColor(.white)
