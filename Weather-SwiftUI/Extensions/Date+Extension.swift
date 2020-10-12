@@ -16,6 +16,12 @@ extension Date {
         return hour
     }
     
+    var time: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:ma"
+        return dateFormatter.string(from: self)
+    }
+    
     func dayOfWeek() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"

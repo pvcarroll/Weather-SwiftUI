@@ -60,7 +60,28 @@ struct LocationView: View {
                     .padding(.leading, 0)
                     .background(Color.white)
                 DailyWeatherView(viewModel: viewModel)
-                
+                Divider()
+                    .padding(.leading, 0)
+                    .background(Color.white)
+                Text("Today: \(viewModel.allWeatherData?.current.weather.description ?? "no description")")
+                Divider()
+                    .padding(.leading, 0)
+                    .background(Color.white)
+                HStack {
+                    VStack {
+                        Text("SUNRISE")
+                        if let sunrise = viewModel.allWeatherData?.current.sunrise {
+                            Text(Date(timeIntervalSince1970: TimeInterval(sunrise)).time)
+                        }
+                    }
+                    Spacer()
+                    VStack {
+                        Text("SUNSET")
+                        if let sunset = viewModel.allWeatherData?.current.sunset {
+                            Text(Date(timeIntervalSince1970: TimeInterval(sunset)).time)
+                        }
+                    }
+                }
                 Divider()
                     .padding(.leading, 0)
                     .background(Color.white)
@@ -71,7 +92,7 @@ struct LocationView: View {
         .padding(.top, 40)
         .frame(width: UIScreen.main.bounds.width, height: nil, alignment: .center)
         .background(
-            Image("partlyCloudy")
+            Image("stormClouds")
                 .resizable()
                 .edgesIgnoringSafeArea(.top)
         )
