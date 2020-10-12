@@ -14,7 +14,7 @@ struct DailyWeatherView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
-                if let dailyForecasts = viewModel.allWeatherData?.daily {
+                if let dailyForecasts = viewModel.allWeatherData?.daily.dropFirst() {
                     ForEach(dailyForecasts, id: \.dt) { dailyForecast in
                         if let dt = dailyForecast.dt
                            , let condition = dailyForecast.weather.first?.main

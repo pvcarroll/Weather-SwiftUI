@@ -63,10 +63,12 @@ struct LocationView: View {
                 Divider()
                     .padding(.leading, 0)
                     .background(Color.white)
-                Text("Today: \(viewModel.allWeatherData?.current.weather.description ?? "no description")")
-                Divider()
-                    .padding(.leading, 0)
-                    .background(Color.white)
+                if let description = viewModel.allWeatherData?.current.weather.first?.description {
+                    Text("Today: \(description)")
+                    Divider()
+                        .padding(.leading, 0)
+                        .background(Color.white)
+                }
                 HStack {
                     VStack {
                         Text("SUNRISE")
