@@ -77,13 +77,30 @@ struct LocationView: View {
         .padding(.top, 40)
         .frame(width: UIScreen.main.bounds.width, height: nil, alignment: .center)
         .background(
-            Image("stormClouds")
+            Image(backgroundImageForCurrentCondition())
                 .resizable()
                 .edgesIgnoringSafeArea(.top)
         )
     }
     
-    
+    private func backgroundImageForCurrentCondition() -> String {
+        guard let condition = viewModel.allWeatherData?.current.weather.first?.main else { return "sunny" }
+        switch condition {
+        case "Clear":
+            guard let dt = viewModel.allWeatherData?.current.dt else { return "sunny" }
+            let isDaytime = viewModel.isDaytime(time: dt)
+            let imageName = (isDaytime ? "sunny" : "night")
+            return imageName
+        case "Clouds": return "cloudy"
+        case "Thunderstorm": return "storm"
+        case "Drizzle": return "rain"
+        case "Rain": return "rain"
+        case "Snow": return "snow"
+        default:
+            print("condition: ", condition)
+            return "sunny"
+        }
+    }
 }
 
 struct LocationView_Previews: PreviewProvider {

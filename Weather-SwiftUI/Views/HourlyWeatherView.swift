@@ -21,7 +21,7 @@ struct HourlyWeatherView: View {
                            , let temp = hourlyForecast.temp {
                             VStack(spacing: 10) {
                                 Text("\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)")
-                                imageForCondition(condition, isDaytime: isDaytime(time: dt))
+                                imageForCondition(condition, isDaytime: viewModel.isDaytime(time: dt))
                                     .resizable()
                                     .frame(width: 20, height: 20, alignment: .center)
                                 Text("\(Int(temp))°")
@@ -47,12 +47,6 @@ struct HourlyWeatherView: View {
             print("condition: ", condition)
             return Image(systemName: "questionmark.circle")
         }
-    }
-    
-    private func isDaytime(time: Int) -> Bool {
-        guard let sunrise = viewModel.allWeatherData?.current.sunrise else { return false }
-        guard let sunset = viewModel.allWeatherData?.current.sunset else { return false }
-        return (time > sunrise) && (time < sunset)
     }
 }
 

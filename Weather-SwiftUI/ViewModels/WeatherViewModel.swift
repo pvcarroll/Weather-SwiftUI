@@ -18,6 +18,12 @@ class WeatherViewModel: ObservableObject {
     init() {
         getWeather()
     }
+    
+    func isDaytime(time: Int) -> Bool {
+        guard let sunrise = allWeatherData?.current.sunrise else { return false }
+        guard let sunset = allWeatherData?.current.sunset else { return false }
+        return (time > sunrise) && (time < sunset)
+    }
 }
 
 extension WeatherViewModel {
