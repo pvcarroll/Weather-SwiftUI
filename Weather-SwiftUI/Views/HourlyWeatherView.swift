@@ -15,7 +15,7 @@ struct HourlyWeatherView: View {
     let isDaytime: Bool
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Text(time)
             imageForCondition(condition)
                 .resizable()

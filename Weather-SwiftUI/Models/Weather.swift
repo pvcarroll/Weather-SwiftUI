@@ -43,6 +43,7 @@ struct HourlyWeather: Codable {
 struct DailyWeather: Codable {
     let dt: Int
     let temp: Temp
+    let weather: [Weather]
 }
 
 struct Temp: Codable {

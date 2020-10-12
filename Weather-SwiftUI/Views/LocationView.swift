@@ -14,7 +14,7 @@ struct LocationView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("<Austin>")
+                Text("Austin")
                     .font(.title)
                     .fontWeight(.medium)
                 Text("\(viewModel.allWeatherData?.current.weather.first?.main ?? "condition")")
@@ -37,14 +37,14 @@ struct LocationView: View {
                 Divider()
                     .padding(.leading, 0)
                     .background(Color.white)
+                
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     if let hourlyForecasts = viewModel.allWeatherData?.hourly {
                         HStack {
-                            ForEach(hourlyForecasts, id: \.dt) { hourlyWeather in
-                                if let dt = hourlyWeather.dt
-                                   , let condition = hourlyWeather.weather.first?.main
-                                   , let temp = hourlyWeather.temp {
-                                    
+                            ForEach(hourlyForecasts, id: \.dt) { hourlyForecast in
+                                if let dt = hourlyForecast.dt
+                                   , let condition = hourlyForecast.weather.first?.main
+                                   , let temp = hourlyForecast.temp {
                                     HourlyWeatherView(
                                         time: "\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)",
                                         condition: condition,
@@ -56,6 +56,11 @@ struct LocationView: View {
                         }
                     }
                 })
+                Divider()
+                    .padding(.leading, 0)
+                    .background(Color.white)
+                DailyWeatherView(viewModel: viewModel)
+                
                 Divider()
                     .padding(.leading, 0)
                     .background(Color.white)
