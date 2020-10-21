@@ -37,7 +37,7 @@ struct HourlyWeather: Codable {
     let wind_speed: Float
     let wind_deg: Int
     let weather: [Weather]
-    let pop: Int
+    let pop: Float
 }
 
 struct DailyWeather: Codable {
