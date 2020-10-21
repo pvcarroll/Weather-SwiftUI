@@ -25,6 +25,10 @@
 		75959C70252E43F3008CBD9C /* HourlyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75959C6F252E43F3008CBD9C /* HourlyWeatherView.swift */; };
 		75959C74252E49AC008CBD9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75959C73252E49AC008CBD9C /* Constants.swift */; };
 		75959C79252E5829008CBD9C /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75959C78252E5829008CBD9C /* WeatherService.swift */; };
+		75A23D08253FDEC6000893BD /* screenshotDay2.png in Resources */ = {isa = PBXBuildFile; fileRef = 75A23D04253FDEC5000893BD /* screenshotDay2.png */; };
+		75A23D09253FDEC6000893BD /* screenshotNight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 75A23D05253FDEC5000893BD /* screenshotNight1.png */; };
+		75A23D0A253FDEC6000893BD /* screenshotDay1.png in Resources */ = {isa = PBXBuildFile; fileRef = 75A23D06253FDEC5000893BD /* screenshotDay1.png */; };
+		75A23D0B253FDEC6000893BD /* screenshotNight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 75A23D07253FDEC6000893BD /* screenshotNight2.png */; };
 		D7051C6DE7C3B1A3C682E28A /* Pods_Weather_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE56485E0C1CF41462E02C9E /* Pods_Weather_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,10 @@
 		75959C6F252E43F3008CBD9C /* HourlyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherView.swift; sourceTree = "<group>"; };
 		75959C73252E49AC008CBD9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		75959C78252E5829008CBD9C /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		75A23D04253FDEC5000893BD /* screenshotDay2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshotDay2.png; sourceTree = "<group>"; };
+		75A23D05253FDEC5000893BD /* screenshotNight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshotNight1.png; sourceTree = "<group>"; };
+		75A23D06253FDEC5000893BD /* screenshotDay1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshotDay1.png; sourceTree = "<group>"; };
+		75A23D07253FDEC6000893BD /* screenshotNight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshotNight2.png; sourceTree = "<group>"; };
 		909866F0C2E48A617D19F60F /* Pods-Weather-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather-SwiftUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather-SwiftUI/Pods-Weather-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		918C216E0807A02FDDC2EC42 /* Pods-Weather-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather-SwiftUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weather-SwiftUI/Pods-Weather-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		BE56485E0C1CF41462E02C9E /* Pods_Weather_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +126,7 @@
 				754814B824E07C270036EC28 /* Models */,
 				75959C72252E4958008CBD9C /* Service */,
 				7528AF89253278F1008C9BC0 /* Extensions */,
+				75A23D03253FDE68000893BD /* Resources */,
 				754814A824E062520036EC28 /* Assets.xcassets */,
 				754814B024E062520036EC28 /* Info.plist */,
 				754814AA24E062520036EC28 /* Preview Content */,
@@ -173,6 +182,25 @@
 				7528AF8525324C40008C9BC0 /* APIClient.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		75A23D03253FDE68000893BD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				75A23D0D253FDECA000893BD /* Screenshots */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		75A23D0D253FDECA000893BD /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				75A23D06253FDEC5000893BD /* screenshotDay1.png */,
+				75A23D04253FDEC5000893BD /* screenshotDay2.png */,
+				75A23D05253FDEC5000893BD /* screenshotNight1.png */,
+				75A23D07253FDEC6000893BD /* screenshotNight2.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		EF8768FD4962B84ACE99A6ED /* Frameworks */ = {
@@ -244,8 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				754814AF24E062520036EC28 /* LaunchScreen.storyboard in Resources */,
+				75A23D09253FDEC6000893BD /* screenshotNight1.png in Resources */,
+				75A23D0B253FDEC6000893BD /* screenshotNight2.png in Resources */,
+				75A23D0A253FDEC6000893BD /* screenshotDay1.png in Resources */,
 				754814AC24E062520036EC28 /* Preview Assets.xcassets in Resources */,
 				754814A924E062520036EC28 /* Assets.xcassets in Resources */,
+				75A23D08253FDEC6000893BD /* screenshotDay2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
