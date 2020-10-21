@@ -17,7 +17,8 @@ struct DailyWeatherView: View {
                 if let dailyForecasts = viewModel.allWeatherData?.daily.dropFirst() {
                     ForEach(dailyForecasts, id: \.dt) { dailyForecast in
                         if let dt = dailyForecast.dt
-                           , let condition = dailyForecast.weather.first?.main
+                           , let main = dailyForecast.weather.first?.main
+                           , let condition = Condition(rawValue: main)
                            , let high = dailyForecast.temp.max
                            , let low = dailyForecast.temp.min {
                             HStack {
@@ -39,15 +40,15 @@ struct DailyWeatherView: View {
     }
     
     // TODO: consolidate
-    private func imageForCondition(_ condition: String) -> Image {
+    private func imageForCondition(_ condition: Condition) -> Image {
         switch condition {
-        case "Clear": return Image(systemName: "sun.max.fill")
-        case "Clouds": return Image(systemName: "cloud.fill")
-        case "Thunderstorm": return Image(systemName: "cloud.bolt.rain.fill")
-        case "Drizzle": return Image(systemName: "cloud.drizzle.fill")
-        case "Rain": return Image(systemName: "cloud.rain.fill")
-        case "Snow": return Image(systemName: "cloud.snow.fill")
-        default:
+        case .clear: return Image(systemName: "sun.max.fill")
+        case .clouds: return Image(systemName: "cloud.fill")            
+        case .thunderstorm: return Image(systemName: "cloud.bolt.rain.fill")
+        case .drizzle: return Image(systemName: "cloud.drizzle.fill")
+        case .rain: return Image(systemName: "cloud.rain.fill")
+        case .snow: return Image(systemName: "cloud.snow.fill")
+        case .other:
             print("condition: ", condition)
             return Image(systemName: "questionmark.circle")
         }

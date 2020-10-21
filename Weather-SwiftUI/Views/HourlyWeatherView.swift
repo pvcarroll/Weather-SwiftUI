@@ -17,7 +17,8 @@ struct HourlyWeatherView: View {
                 HStack {
                     ForEach(hourlyForecasts, id: \.dt) { hourlyForecast in
                         if let dt = hourlyForecast.dt
-                           , let condition = hourlyForecast.weather.first?.main
+                           , let main = hourlyForecast.weather.first?.main
+                           , let condition = Condition(rawValue: main)
                            , let temp = hourlyForecast.temp {
                             VStack(spacing: 10) {
                                 Text("\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)")
@@ -32,23 +33,23 @@ struct HourlyWeatherView: View {
         })
     }
     
-    private func imageForCondition(_ condition: String, isDaytime: Bool) -> some View {
+    private func imageForCondition(_ condition: Condition, isDaytime: Bool) -> some View {
         let image: Image
         var isYellow = false
         
         switch condition {
-        case "Clear":
+        case .clear:
             if isDaytime {
                 image = Image(systemName: "sun.max.fill")
                 isYellow = true
             } else {
                 image = Image(systemName: "moon.stars.fill")
             }
-        case "Clouds": image = Image(systemName: "cloud.fill")
-        case "Thunderstorm": image = Image(systemName: "cloud.bolt.rain.fill")
-        case "Drizzle": image = Image(systemName: "cloud.drizzle.fill")
-        case "Rain": image = Image(systemName: "cloud.rain.fill")
-        case "Snow": image = Image(systemName: "cloud.snow.fill")
+        case .clouds: image = Image(systemName: "cloud.fill")
+        case .thunderstorm: image = Image(systemName: "cloud.bolt.rain.fill")
+        case .drizzle: image = Image(systemName: "cloud.drizzle.fill")
+        case .rain: image = Image(systemName: "cloud.rain.fill")
+        case .snow: image = Image(systemName: "cloud.snow.fill")
         default:
             print("condition: ", condition)
             image = Image(systemName: "questionmark.circle")

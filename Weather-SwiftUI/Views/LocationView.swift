@@ -67,18 +67,20 @@ struct LocationView: View {
     }
     
     private func backgroundImageForCurrentCondition() -> String {
-        guard let condition = viewModel.allWeatherData?.current.weather.first?.main else { return "sunny" }
+        guard let main = viewModel.allWeatherData?.current.weather.first?.main else { return "sunny" }
+        guard let condition = Condition(rawValue: main) else { return "sunny" }
+        
         switch condition {
-        case "Clear":
+        case .clear:
             guard let dt = viewModel.allWeatherData?.current.dt else { return "sunny" }
             let isDaytime = viewModel.isDaytime(time: dt)
             let imageName = (isDaytime ? "sunny" : "night")
             return imageName
-        case "Clouds": return "cloudy"
-        case "Thunderstorm": return "storm"
-        case "Drizzle": return "rain"
-        case "Rain": return "rain"
-        case "Snow": return "snow"
+        case .clouds: return "cloudy"
+        case .thunderstorm: return "storm"
+        case .drizzle: return "rain"
+        case .rain: return "rain"
+        case .snow: return "snow"
         default:
             print("condition: ", condition)
             return "sunny"
