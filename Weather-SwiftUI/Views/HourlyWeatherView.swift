@@ -22,7 +22,6 @@ struct HourlyWeatherView: View {
                             VStack(spacing: 10) {
                                 Text("\(Date(timeIntervalSince1970: TimeInterval(dt)).hour)")
                                 imageForCondition(condition, isDaytime: viewModel.isDaytime(time: dt))
-                                    .resizable()
                                     .frame(width: 20, height: 20, alignment: .center)
                                 Text("\(Int(temp))°")
                             }
@@ -33,20 +32,29 @@ struct HourlyWeatherView: View {
         })
     }
     
-    private func imageForCondition(_ condition: String, isDaytime: Bool) -> Image {
+    private func imageForCondition(_ condition: String, isDaytime: Bool) -> some View {
+        let image: Image
+        var isYellow = false
+        
         switch condition {
         case "Clear":
-            let imageName = (isDaytime ? "sun.max.fill" : "moon.stars.fill")
-            return Image(systemName: imageName)
-        case "Clouds": return Image(systemName: "cloud.fill")
-        case "Thunderstorm": return Image(systemName: "cloud.bolt.rain.fill")
-        case "Drizzle": return Image(systemName: "cloud.drizzle.fill")
-        case "Rain": return Image(systemName: "cloud.rain.fill")
-        case "Snow": return Image(systemName: "cloud.snow.fill")
+            if isDaytime {
+                image = Image(systemName: "sun.max.fill")
+                isYellow = true
+            } else {
+                image = Image(systemName: "moon.stars.fill")
+            }
+        case "Clouds": image = Image(systemName: "cloud.fill")
+        case "Thunderstorm": image = Image(systemName: "cloud.bolt.rain.fill")
+        case "Drizzle": image = Image(systemName: "cloud.drizzle.fill")
+        case "Rain": image = Image(systemName: "cloud.rain.fill")
+        case "Snow": image = Image(systemName: "cloud.snow.fill")
         default:
             print("condition: ", condition)
-            return Image(systemName: "questionmark.circle")
+            image = Image(systemName: "questionmark.circle")
         }
+        let color = isYellow ? Color.yellow : Color.white
+        return image.resizable().foregroundColor(color)
     }
 }
 
